@@ -1,0 +1,1005 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Хранилище VinidiktovDEMnovemberModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="ID_City" />
+          </Key>
+          <Property Name="ID_City" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Client">
+          <Key>
+            <PropertyRef Name="ID_Client" />
+          </Key>
+          <Property Name="ID_Client" Type="int" Nullable="false" />
+          <Property Name="Surname" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ForeName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Series" Type="int" Nullable="false" />
+          <Property Name="Number" Type="int" Nullable="false" />
+          <Property Name="DataOfBirthday" Type="date" Nullable="false" />
+          <Property Name="Index" Type="int" Nullable="false" />
+          <Property Name="ID_City" Type="int" Nullable="false" />
+          <Property Name="ID_Street" Type="int" Nullable="false" />
+          <Property Name="Home" Type="int" Nullable="false" />
+          <Property Name="Flat" Type="int" Nullable="false" />
+          <Property Name="E-mail" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="ID_Employee" />
+          </Key>
+          <Property Name="ID_Employee" Type="int" Nullable="false" />
+          <Property Name="ID_Post" Type="int" Nullable="false" />
+          <Property Name="Surname" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Forename" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Login" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="History_Employee">
+          <Key>
+            <PropertyRef Name="ID_History" />
+          </Key>
+          <Property Name="ID_Employee" Type="int" Nullable="false" />
+          <Property Name="Date" Type="datetime" />
+          <Property Name="ID_Input" Type="int" Nullable="false" />
+          <Property Name="ID_History" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="ID_Order" />
+          </Key>
+          <Property Name="ID_Order" Type="int" Nullable="false" />
+          <Property Name="DateCreation" Type="date" Nullable="false" />
+          <Property Name="OrderTime" Type="time" Precision="7" Nullable="false" />
+          <Property Name="ID_Client" Type="int" Nullable="false" />
+          <Property Name="Status" Type="int" Nullable="false" />
+          <Property Name="ClosingDate" Type="date" />
+          <Property Name="RentalTime" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Post">
+          <Key>
+            <PropertyRef Name="ID_Post" />
+          </Key>
+          <Property Name="ID_Post" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Service">
+          <Key>
+            <PropertyRef Name="ID_Service" />
+          </Key>
+          <Property Name="ID_Service" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ServiceCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Cost" Type="money" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ServiceandOrder">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID_Order" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="DateCreate" Type="date" Nullable="false" />
+          <Property Name="ID_Client" Type="int" Nullable="false" />
+          <Property Name="ID_Service" Type="int" />
+          <Property Name="NumberOrder" Type="int" Nullable="false" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Status">
+          <Key>
+            <PropertyRef Name="ID_Status" />
+          </Key>
+          <Property Name="ID_Status" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Street">
+          <Key>
+            <PropertyRef Name="ID_Street" />
+          </Key>
+          <Property Name="ID_Street" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Type_input">
+          <Key>
+            <PropertyRef Name="ID_Input" />
+          </Key>
+          <Property Name="ID_Input" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "VinidiktovDEMnovember.dbo.ViewingClient" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <EntityType Name="ViewingClient">
+          <Key>
+            <PropertyRef Name="ID_Client" />
+            <PropertyRef Name="Client" />
+            <PropertyRef Name="Series" />
+            <PropertyRef Name="Number" />
+            <PropertyRef Name="DataOfBirthday" />
+            <PropertyRef Name="Index" />
+            <PropertyRef Name="Title" />
+            <PropertyRef Name="Street" />
+            <PropertyRef Name="Home" />
+            <PropertyRef Name="Flat" />
+            <PropertyRef Name="Email" />
+            <PropertyRef Name="Password" />
+          </Key>
+          <Property Name="ID_Client" Type="int" Nullable="false" />
+          <Property Name="Client" Type="nvarchar" MaxLength="152" Nullable="false" />
+          <Property Name="Series" Type="int" Nullable="false" />
+          <Property Name="Number" Type="int" Nullable="false" />
+          <Property Name="DataOfBirthday" Type="date" Nullable="false" />
+          <Property Name="Index" Type="int" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Street" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Home" Type="int" Nullable="false" />
+          <Property Name="Flat" Type="int" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "VinidiktovDEMnovember.dbo.ViewingEmployee" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <EntityType Name="ViewingEmployee">
+          <Key>
+            <PropertyRef Name="Employee" />
+            <PropertyRef Name="Login" />
+            <PropertyRef Name="ID_History" />
+            <PropertyRef Name="ID_Employee" />
+            <PropertyRef Name="Input" />
+          </Key>
+          <Property Name="Employee" Type="nvarchar" MaxLength="152" Nullable="false" />
+          <Property Name="Login" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ID_History" Type="int" Nullable="false" />
+          <Property Name="Date" Type="datetime" />
+          <Property Name="ID_Employee" Type="int" Nullable="false" />
+          <Property Name="Input" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "VinidiktovDEMnovember.dbo.ViewingOrders" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <EntityType Name="ViewingOrders">
+          <Key>
+            <PropertyRef Name="ID_Client" />
+            <PropertyRef Name="Client" />
+            <PropertyRef Name="Service" />
+            <PropertyRef Name="City" />
+            <PropertyRef Name="DateCreation" />
+            <PropertyRef Name="OrderTime" />
+            <PropertyRef Name="RentalTime" />
+            <PropertyRef Name="Status" />
+            <PropertyRef Name="ID_Street" />
+            <PropertyRef Name="Cost" />
+          </Key>
+          <Property Name="ID_Client" Type="int" Nullable="false" />
+          <Property Name="Client" Type="nvarchar" MaxLength="152" Nullable="false" />
+          <Property Name="Service" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="City" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="DateCreation" Type="date" Nullable="false" />
+          <Property Name="OrderTime" Type="time" Precision="7" Nullable="false" />
+          <Property Name="ClosingDate" Type="date" />
+          <Property Name="RentalTime" Type="int" Nullable="false" />
+          <Property Name="Status" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ID_Street" Type="int" Nullable="false" />
+          <Property Name="Cost" Type="money" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Client_City">
+          <End Role="City" Type="Self.City" Multiplicity="1" />
+          <End Role="Client" Type="Self.Client" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="ID_City" />
+            </Principal>
+            <Dependent Role="Client">
+              <PropertyRef Name="ID_City" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Client_Street">
+          <End Role="Street" Type="Self.Street" Multiplicity="1" />
+          <End Role="Client" Type="Self.Client" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Street">
+              <PropertyRef Name="ID_Street" />
+            </Principal>
+            <Dependent Role="Client">
+              <PropertyRef Name="ID_Street" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employee_Post">
+          <End Role="Post" Type="Self.Post" Multiplicity="1" />
+          <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Post">
+              <PropertyRef Name="ID_Post" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="ID_Post" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_History_Employee_Employee">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+          <End Role="History_Employee" Type="Self.History_Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="ID_Employee" />
+            </Principal>
+            <Dependent Role="History_Employee">
+              <PropertyRef Name="ID_Employee" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_History_Employee_Type_input">
+          <End Role="Type_input" Type="Self.Type_input" Multiplicity="1" />
+          <End Role="History_Employee" Type="Self.History_Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Type_input">
+              <PropertyRef Name="ID_Input" />
+            </Principal>
+            <Dependent Role="History_Employee">
+              <PropertyRef Name="ID_Input" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_Client">
+          <End Role="Client" Type="Self.Client" Multiplicity="1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="ID_Client" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="ID_Client" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_Status">
+          <End Role="Status" Type="Self.Status" Multiplicity="1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status">
+              <PropertyRef Name="ID_Status" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="Status" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ServiceandOrder_Client">
+          <End Role="Client" Type="Self.Client" Multiplicity="1" />
+          <End Role="ServiceandOrder" Type="Self.ServiceandOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="ID_Client" />
+            </Principal>
+            <Dependent Role="ServiceandOrder">
+              <PropertyRef Name="ID_Client" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ServiceandOrder_Order">
+          <End Role="Order" Type="Self.Order" Multiplicity="1" />
+          <End Role="ServiceandOrder" Type="Self.ServiceandOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order">
+              <PropertyRef Name="ID_Order" />
+            </Principal>
+            <Dependent Role="ServiceandOrder">
+              <PropertyRef Name="NumberOrder" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ServiceandOrder_Service">
+          <End Role="Service" Type="Self.Service" Multiplicity="0..1" />
+          <End Role="ServiceandOrder" Type="Self.ServiceandOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Service">
+              <PropertyRef Name="ID_Service" />
+            </Principal>
+            <Dependent Role="ServiceandOrder">
+              <PropertyRef Name="ID_Service" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище VinidiktovDEMnovemberModelContainer">
+          <EntitySet Name="City" EntityType="Self.City" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Client" EntityType="Self.Client" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="History_Employee" EntityType="Self.History_Employee" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Post" EntityType="Self.Post" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Service" EntityType="Self.Service" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ServiceandOrder" EntityType="Self.ServiceandOrder" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Status" EntityType="Self.Status" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Street" EntityType="Self.Street" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Type_input" EntityType="Self.Type_input" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ViewingClient" EntityType="Self.ViewingClient" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [ViewingClient].[ID_Client] AS [ID_Client], 
+    [ViewingClient].[Client] AS [Client], 
+    [ViewingClient].[Series] AS [Series], 
+    [ViewingClient].[Number] AS [Number], 
+    [ViewingClient].[DataOfBirthday] AS [DataOfBirthday], 
+    [ViewingClient].[Index] AS [Index], 
+    [ViewingClient].[Title] AS [Title], 
+    [ViewingClient].[Street] AS [Street], 
+    [ViewingClient].[Home] AS [Home], 
+    [ViewingClient].[Flat] AS [Flat], 
+    [ViewingClient].[Email] AS [Email], 
+    [ViewingClient].[Password] AS [Password]
+    FROM [dbo].[ViewingClient] AS [ViewingClient]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="ViewingEmployee" EntityType="Self.ViewingEmployee" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [ViewingEmployee].[Employee] AS [Employee], 
+    [ViewingEmployee].[Login] AS [Login], 
+    [ViewingEmployee].[ID_History] AS [ID_History], 
+    [ViewingEmployee].[Date] AS [Date], 
+    [ViewingEmployee].[ID_Employee] AS [ID_Employee], 
+    [ViewingEmployee].[Input] AS [Input]
+    FROM [dbo].[ViewingEmployee] AS [ViewingEmployee]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="ViewingOrders" EntityType="Self.ViewingOrders" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [ViewingOrders].[ID_Client] AS [ID_Client], 
+    [ViewingOrders].[Client] AS [Client], 
+    [ViewingOrders].[Service] AS [Service], 
+    [ViewingOrders].[City] AS [City], 
+    [ViewingOrders].[DateCreation] AS [DateCreation], 
+    [ViewingOrders].[OrderTime] AS [OrderTime], 
+    [ViewingOrders].[ClosingDate] AS [ClosingDate], 
+    [ViewingOrders].[RentalTime] AS [RentalTime], 
+    [ViewingOrders].[Status] AS [Status], 
+    [ViewingOrders].[ID_Street] AS [ID_Street], 
+    [ViewingOrders].[Cost] AS [Cost]
+    FROM [dbo].[ViewingOrders] AS [ViewingOrders]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_Client_City" Association="Self.FK_Client_City">
+            <End Role="City" EntitySet="City" />
+            <End Role="Client" EntitySet="Client" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Client_Street" Association="Self.FK_Client_Street">
+            <End Role="Street" EntitySet="Street" />
+            <End Role="Client" EntitySet="Client" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employee_Post" Association="Self.FK_Employee_Post">
+            <End Role="Post" EntitySet="Post" />
+            <End Role="Employee" EntitySet="Employee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_History_Employee_Employee" Association="Self.FK_History_Employee_Employee">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="History_Employee" EntitySet="History_Employee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_History_Employee_Type_input" Association="Self.FK_History_Employee_Type_input">
+            <End Role="Type_input" EntitySet="Type_input" />
+            <End Role="History_Employee" EntitySet="History_Employee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_Client" Association="Self.FK_Order_Client">
+            <End Role="Client" EntitySet="Client" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_Status" Association="Self.FK_Order_Status">
+            <End Role="Status" EntitySet="Status" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ServiceandOrder_Client" Association="Self.FK_ServiceandOrder_Client">
+            <End Role="Client" EntitySet="Client" />
+            <End Role="ServiceandOrder" EntitySet="ServiceandOrder" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ServiceandOrder_Order" Association="Self.FK_ServiceandOrder_Order">
+            <End Role="Order" EntitySet="Order" />
+            <End Role="ServiceandOrder" EntitySet="ServiceandOrder" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ServiceandOrder_Service" Association="Self.FK_ServiceandOrder_Service">
+            <End Role="Service" EntitySet="Service" />
+            <End Role="ServiceandOrder" EntitySet="ServiceandOrder" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="VinidiktovDEMnovemberModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="ID_City" />
+          </Key>
+          <Property Name="ID_City" Type="Int32" Nullable="false" />
+          <Property Name="Title" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Client" Relationship="Self.FK_Client_City" FromRole="City" ToRole="Client" />
+        </EntityType>
+        <EntityType Name="Client">
+          <Key>
+            <PropertyRef Name="ID_Client" />
+          </Key>
+          <Property Name="ID_Client" Type="Int32" Nullable="false" />
+          <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ForeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Series" Type="Int32" Nullable="false" />
+          <Property Name="Number" Type="Int32" Nullable="false" />
+          <Property Name="DataOfBirthday" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Index" Type="Int32" Nullable="false" />
+          <Property Name="ID_City" Type="Int32" Nullable="false" />
+          <Property Name="ID_Street" Type="Int32" Nullable="false" />
+          <Property Name="Home" Type="Int32" Nullable="false" />
+          <Property Name="Flat" Type="Int32" Nullable="false" />
+          <Property Name="E_mail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="City" Relationship="Self.FK_Client_City" FromRole="Client" ToRole="City" />
+          <NavigationProperty Name="Street" Relationship="Self.FK_Client_Street" FromRole="Client" ToRole="Street" />
+          <NavigationProperty Name="Order" Relationship="Self.FK_Order_Client" FromRole="Client" ToRole="Order" />
+          <NavigationProperty Name="ServiceandOrder" Relationship="VinidiktovDEMnovemberModel.FK_ServiceandOrder_Client" FromRole="Client" ToRole="ServiceandOrder" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="ID_Employee" />
+          </Key>
+          <Property Name="ID_Employee" Type="Int32" Nullable="false" />
+          <Property Name="ID_Post" Type="Int32" Nullable="false" />
+          <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Forename" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Post" Relationship="Self.FK_Employee_Post" FromRole="Employee" ToRole="Post" />
+          <NavigationProperty Name="History_Employee" Relationship="Self.FK_History_Employee_Employee" FromRole="Employee" ToRole="History_Employee" />
+        </EntityType>
+        <EntityType Name="History_Employee">
+          <Key>
+            <PropertyRef Name="ID_History" />
+          </Key>
+          <Property Name="ID_Employee" Type="Int32" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Precision="3" />
+          <Property Name="ID_Input" Type="Int32" Nullable="false" />
+          <Property Name="ID_History" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK_History_Employee_Employee" FromRole="History_Employee" ToRole="Employee" />
+          <NavigationProperty Name="Type_input" Relationship="Self.FK_History_Employee_Type_input" FromRole="History_Employee" ToRole="Type_input" />
+        </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="ID_Order" />
+          </Key>
+          <Property Name="ID_Order" Type="Int32" Nullable="false" />
+          <Property Name="DateCreation" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="OrderTime" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="ID_Client" Type="Int32" Nullable="false" />
+          <Property Name="Status" Type="Int32" Nullable="false" />
+          <Property Name="ClosingDate" Type="DateTime" Precision="0" />
+          <Property Name="RentalTime" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Client" Relationship="Self.FK_Order_Client" FromRole="Order" ToRole="Client" />
+          <NavigationProperty Name="Status1" Relationship="Self.FK_Order_Status" FromRole="Order" ToRole="Status" />
+          <NavigationProperty Name="ServiceandOrder" Relationship="VinidiktovDEMnovemberModel.FK_ServiceandOrder_Order" FromRole="Order" ToRole="ServiceandOrder" />
+        </EntityType>
+        <EntityType Name="Post">
+          <Key>
+            <PropertyRef Name="ID_Post" />
+          </Key>
+          <Property Name="ID_Post" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK_Employee_Post" FromRole="Post" ToRole="Employee" />
+        </EntityType>
+        <EntityType Name="Service">
+          <Key>
+            <PropertyRef Name="ID_Service" />
+          </Key>
+          <Property Name="ID_Service" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ServiceCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Cost" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <NavigationProperty Name="ServiceandOrder" Relationship="VinidiktovDEMnovemberModel.FK_ServiceandOrder_Service" FromRole="Service" ToRole="ServiceandOrder" />
+        </EntityType>
+        <EntityType Name="Status">
+          <Key>
+            <PropertyRef Name="ID_Status" />
+          </Key>
+          <Property Name="ID_Status" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Order" Relationship="Self.FK_Order_Status" FromRole="Status" ToRole="Order" />
+        </EntityType>
+        <EntityType Name="Street">
+          <Key>
+            <PropertyRef Name="ID_Street" />
+          </Key>
+          <Property Name="ID_Street" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Client" Relationship="Self.FK_Client_Street" FromRole="Street" ToRole="Client" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Type_input">
+          <Key>
+            <PropertyRef Name="ID_Input" />
+          </Key>
+          <Property Name="ID_Input" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="History_Employee" Relationship="Self.FK_History_Employee_Type_input" FromRole="Type_input" ToRole="History_Employee" />
+        </EntityType>
+        <EntityType Name="ViewingEmployee">
+          <Key>
+            <PropertyRef Name="Employee" />
+            <PropertyRef Name="Login" />
+            <PropertyRef Name="ID_History" />
+            <PropertyRef Name="ID_Employee" />
+            <PropertyRef Name="Input" />
+          </Key>
+          <Property Name="Employee" Type="String" MaxLength="152" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ID_History" Type="Int32" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Precision="3" />
+          <Property Name="ID_Employee" Type="Int32" Nullable="false" />
+          <Property Name="Input" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ViewingOrders">
+          <Key>
+            <PropertyRef Name="ID_Client" />
+            <PropertyRef Name="Client" />
+            <PropertyRef Name="Service" />
+            <PropertyRef Name="City" />
+            <PropertyRef Name="DateCreation" />
+            <PropertyRef Name="OrderTime" />
+            <PropertyRef Name="RentalTime" />
+            <PropertyRef Name="Status" />
+            <PropertyRef Name="ID_Street" />
+            <PropertyRef Name="Cost" />
+          </Key>
+          <Property Name="ID_Client" Type="Int32" Nullable="false" />
+          <Property Name="Client" Type="String" MaxLength="152" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Service" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="City" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DateCreation" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="OrderTime" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="ClosingDate" Type="DateTime" Precision="0" />
+          <Property Name="RentalTime" Type="Int32" Nullable="false" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ID_Street" Type="Int32" Nullable="false" />
+          <Property Name="Cost" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Client_City">
+          <End Role="City" Type="Self.City" Multiplicity="1" />
+          <End Role="Client" Type="Self.Client" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="ID_City" />
+            </Principal>
+            <Dependent Role="Client">
+              <PropertyRef Name="ID_City" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Client_Street">
+          <End Role="Street" Type="Self.Street" Multiplicity="1" />
+          <End Role="Client" Type="Self.Client" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Street">
+              <PropertyRef Name="ID_Street" />
+            </Principal>
+            <Dependent Role="Client">
+              <PropertyRef Name="ID_Street" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_Client">
+          <End Role="Client" Type="Self.Client" Multiplicity="1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="ID_Client" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="ID_Client" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employee_Post">
+          <End Role="Post" Type="Self.Post" Multiplicity="1" />
+          <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Post">
+              <PropertyRef Name="ID_Post" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="ID_Post" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_History_Employee_Employee">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+          <End Role="History_Employee" Type="Self.History_Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="ID_Employee" />
+            </Principal>
+            <Dependent Role="History_Employee">
+              <PropertyRef Name="ID_Employee" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_History_Employee_Type_input">
+          <End Role="Type_input" Type="Self.Type_input" Multiplicity="1" />
+          <End Role="History_Employee" Type="Self.History_Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Type_input">
+              <PropertyRef Name="ID_Input" />
+            </Principal>
+            <Dependent Role="History_Employee">
+              <PropertyRef Name="ID_Input" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_Status">
+          <End Role="Status" Type="Self.Status" Multiplicity="1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status">
+              <PropertyRef Name="ID_Status" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="Status" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="VinidiktovDEMnovemberEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="City" EntityType="Self.City" />
+          <EntitySet Name="Client" EntityType="Self.Client" />
+          <EntitySet Name="Employee" EntityType="Self.Employee" />
+          <EntitySet Name="History_Employee" EntityType="Self.History_Employee" />
+          <EntitySet Name="Order" EntityType="Self.Order" />
+          <EntitySet Name="Post" EntityType="Self.Post" />
+          <EntitySet Name="Service" EntityType="Self.Service" />
+          <EntitySet Name="Status" EntityType="Self.Status" />
+          <EntitySet Name="Street" EntityType="Self.Street" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="Type_input" EntityType="Self.Type_input" />
+          <EntitySet Name="ViewingEmployee" EntityType="Self.ViewingEmployee" />
+          <EntitySet Name="ViewingOrders" EntityType="Self.ViewingOrders" />
+          <AssociationSet Name="FK_Client_City" Association="Self.FK_Client_City">
+            <End Role="City" EntitySet="City" />
+            <End Role="Client" EntitySet="Client" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Client_Street" Association="Self.FK_Client_Street">
+            <End Role="Street" EntitySet="Street" />
+            <End Role="Client" EntitySet="Client" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_Client" Association="Self.FK_Order_Client">
+            <End Role="Client" EntitySet="Client" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employee_Post" Association="Self.FK_Employee_Post">
+            <End Role="Post" EntitySet="Post" />
+            <End Role="Employee" EntitySet="Employee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_History_Employee_Employee" Association="Self.FK_History_Employee_Employee">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="History_Employee" EntitySet="History_Employee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_History_Employee_Type_input" Association="Self.FK_History_Employee_Type_input">
+            <End Role="Type_input" EntitySet="Type_input" />
+            <End Role="History_Employee" EntitySet="History_Employee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_Status" Association="Self.FK_Order_Status">
+            <End Role="Status" EntitySet="Status" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <EntitySet Name="ViewingClient" EntityType="VinidiktovDEMnovemberModel.ViewingClient" />
+          <EntitySet Name="ServiceandOrder" EntityType="VinidiktovDEMnovemberModel.ServiceandOrder" />
+          <AssociationSet Name="FK_ServiceandOrder_Client" Association="VinidiktovDEMnovemberModel.FK_ServiceandOrder_Client">
+            <End Role="Client" EntitySet="Client" />
+            <End Role="ServiceandOrder" EntitySet="ServiceandOrder" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ServiceandOrder_Order" Association="VinidiktovDEMnovemberModel.FK_ServiceandOrder_Order">
+            <End Role="Order" EntitySet="Order" />
+            <End Role="ServiceandOrder" EntitySet="ServiceandOrder" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ServiceandOrder_Service" Association="VinidiktovDEMnovemberModel.FK_ServiceandOrder_Service">
+            <End Role="Service" EntitySet="Service" />
+            <End Role="ServiceandOrder" EntitySet="ServiceandOrder" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="ViewingClient">
+          <Key>
+            <PropertyRef Name="ID_Client" />
+            <PropertyRef Name="Client" />
+            <PropertyRef Name="Series" />
+            <PropertyRef Name="Number" />
+            <PropertyRef Name="DataOfBirthday" />
+            <PropertyRef Name="Index" />
+            <PropertyRef Name="Title" />
+            <PropertyRef Name="Street" />
+            <PropertyRef Name="Home" />
+            <PropertyRef Name="Flat" />
+            <PropertyRef Name="Email" />
+            <PropertyRef Name="Password" />
+          </Key>
+          <Property Name="ID_Client" Type="Int32" Nullable="false" />
+          <Property Name="Client" Type="String" Nullable="false" MaxLength="152" FixedLength="false" Unicode="true" />
+          <Property Name="Series" Type="Int32" Nullable="false" />
+          <Property Name="Number" Type="Int32" Nullable="false" />
+          <Property Name="DataOfBirthday" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Index" Type="Int32" Nullable="false" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Street" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Home" Type="Int32" Nullable="false" />
+          <Property Name="Flat" Type="Int32" Nullable="false" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ServiceandOrder">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID_Order" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DateCreate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="ID_Client" Type="Int32" Nullable="false" />
+          <Property Name="ID_Service" Type="Int32" />
+          <Property Name="NumberOrder" Type="Int32" Nullable="false" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Client" Relationship="VinidiktovDEMnovemberModel.FK_ServiceandOrder_Client" FromRole="ServiceandOrder" ToRole="Client" />
+          <NavigationProperty Name="Order" Relationship="VinidiktovDEMnovemberModel.FK_ServiceandOrder_Order" FromRole="ServiceandOrder" ToRole="Order" />
+          <NavigationProperty Name="Service" Relationship="VinidiktovDEMnovemberModel.FK_ServiceandOrder_Service" FromRole="ServiceandOrder" ToRole="Service" />
+        </EntityType>
+        <Association Name="FK_ServiceandOrder_Client">
+          <End Type="VinidiktovDEMnovemberModel.Client" Role="Client" Multiplicity="1" />
+          <End Type="VinidiktovDEMnovemberModel.ServiceandOrder" Role="ServiceandOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="ID_Client" />
+            </Principal>
+            <Dependent Role="ServiceandOrder">
+              <PropertyRef Name="ID_Client" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ServiceandOrder_Order">
+          <End Type="VinidiktovDEMnovemberModel.Order" Role="Order" Multiplicity="1" />
+          <End Type="VinidiktovDEMnovemberModel.ServiceandOrder" Role="ServiceandOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order">
+              <PropertyRef Name="ID_Order" />
+            </Principal>
+            <Dependent Role="ServiceandOrder">
+              <PropertyRef Name="NumberOrder" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ServiceandOrder_Service">
+          <End Type="VinidiktovDEMnovemberModel.Service" Role="Service" Multiplicity="0..1" />
+          <End Type="VinidiktovDEMnovemberModel.ServiceandOrder" Role="ServiceandOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Service">
+              <PropertyRef Name="ID_Service" />
+            </Principal>
+            <Dependent Role="ServiceandOrder">
+              <PropertyRef Name="ID_Service" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище VinidiktovDEMnovemberModelContainer" CdmEntityContainer="VinidiktovDEMnovemberEntities">
+          <EntitySetMapping Name="City">
+            <EntityTypeMapping TypeName="VinidiktovDEMnovemberModel.City">
+              <MappingFragment StoreEntitySet="City">
+                <ScalarProperty Name="ID_City" ColumnName="ID_City" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Client">
+            <EntityTypeMapping TypeName="VinidiktovDEMnovemberModel.Client">
+              <MappingFragment StoreEntitySet="Client">
+                <ScalarProperty Name="ID_Client" ColumnName="ID_Client" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ForeName" ColumnName="ForeName" />
+                <ScalarProperty Name="Series" ColumnName="Series" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="DataOfBirthday" ColumnName="DataOfBirthday" />
+                <ScalarProperty Name="Index" ColumnName="Index" />
+                <ScalarProperty Name="ID_City" ColumnName="ID_City" />
+                <ScalarProperty Name="ID_Street" ColumnName="ID_Street" />
+                <ScalarProperty Name="Home" ColumnName="Home" />
+                <ScalarProperty Name="Flat" ColumnName="Flat" />
+                <ScalarProperty Name="E_mail" ColumnName="E-mail" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employee">
+            <EntityTypeMapping TypeName="VinidiktovDEMnovemberModel.Employee">
+              <MappingFragment StoreEntitySet="Employee">
+                <ScalarProperty Name="ID_Employee" ColumnName="ID_Employee" />
+                <ScalarProperty Name="ID_Post" ColumnName="ID_Post" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Forename" ColumnName="Forename" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="History_Employee">
+            <EntityTypeMapping TypeName="VinidiktovDEMnovemberModel.History_Employee">
+              <MappingFragment StoreEntitySet="History_Employee">
+                <ScalarProperty Name="ID_Employee" ColumnName="ID_Employee" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="ID_Input" ColumnName="ID_Input" />
+                <ScalarProperty Name="ID_History" ColumnName="ID_History" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Order">
+            <EntityTypeMapping TypeName="VinidiktovDEMnovemberModel.Order">
+              <MappingFragment StoreEntitySet="Order">
+                <ScalarProperty Name="ID_Order" ColumnName="ID_Order" />
+                <ScalarProperty Name="DateCreation" ColumnName="DateCreation" />
+                <ScalarProperty Name="OrderTime" ColumnName="OrderTime" />
+                <ScalarProperty Name="ID_Client" ColumnName="ID_Client" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="ClosingDate" ColumnName="ClosingDate" />
+                <ScalarProperty Name="RentalTime" ColumnName="RentalTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Post">
+            <EntityTypeMapping TypeName="VinidiktovDEMnovemberModel.Post">
+              <MappingFragment StoreEntitySet="Post">
+                <ScalarProperty Name="ID_Post" ColumnName="ID_Post" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Service">
+            <EntityTypeMapping TypeName="VinidiktovDEMnovemberModel.Service">
+              <MappingFragment StoreEntitySet="Service">
+                <ScalarProperty Name="ID_Service" ColumnName="ID_Service" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ServiceCode" ColumnName="ServiceCode" />
+                <ScalarProperty Name="Cost" ColumnName="Cost" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Status">
+            <EntityTypeMapping TypeName="VinidiktovDEMnovemberModel.Status">
+              <MappingFragment StoreEntitySet="Status">
+                <ScalarProperty Name="ID_Status" ColumnName="ID_Status" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Street">
+            <EntityTypeMapping TypeName="VinidiktovDEMnovemberModel.Street">
+              <MappingFragment StoreEntitySet="Street">
+                <ScalarProperty Name="ID_Street" ColumnName="ID_Street" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="VinidiktovDEMnovemberModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Type_input">
+            <EntityTypeMapping TypeName="VinidiktovDEMnovemberModel.Type_input">
+              <MappingFragment StoreEntitySet="Type_input">
+                <ScalarProperty Name="ID_Input" ColumnName="ID_Input" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ViewingEmployee">
+            <EntityTypeMapping TypeName="VinidiktovDEMnovemberModel.ViewingEmployee">
+              <MappingFragment StoreEntitySet="ViewingEmployee">
+                <ScalarProperty Name="Employee" ColumnName="Employee" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="ID_History" ColumnName="ID_History" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="ID_Employee" ColumnName="ID_Employee" />
+                <ScalarProperty Name="Input" ColumnName="Input" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ViewingOrders">
+            <EntityTypeMapping TypeName="VinidiktovDEMnovemberModel.ViewingOrders">
+              <MappingFragment StoreEntitySet="ViewingOrders">
+                <ScalarProperty Name="ID_Client" ColumnName="ID_Client" />
+                <ScalarProperty Name="Client" ColumnName="Client" />
+                <ScalarProperty Name="Service" ColumnName="Service" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="DateCreation" ColumnName="DateCreation" />
+                <ScalarProperty Name="OrderTime" ColumnName="OrderTime" />
+                <ScalarProperty Name="ClosingDate" ColumnName="ClosingDate" />
+                <ScalarProperty Name="RentalTime" ColumnName="RentalTime" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="ID_Street" ColumnName="ID_Street" />
+                <ScalarProperty Name="Cost" ColumnName="Cost" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ViewingClient">
+            <EntityTypeMapping TypeName="VinidiktovDEMnovemberModel.ViewingClient">
+              <MappingFragment StoreEntitySet="ViewingClient">
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Flat" ColumnName="Flat" />
+                <ScalarProperty Name="Home" ColumnName="Home" />
+                <ScalarProperty Name="Street" ColumnName="Street" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Index" ColumnName="Index" />
+                <ScalarProperty Name="DataOfBirthday" ColumnName="DataOfBirthday" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="Series" ColumnName="Series" />
+                <ScalarProperty Name="Client" ColumnName="Client" />
+                <ScalarProperty Name="ID_Client" ColumnName="ID_Client" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ServiceandOrder">
+            <EntityTypeMapping TypeName="VinidiktovDEMnovemberModel.ServiceandOrder">
+              <MappingFragment StoreEntitySet="ServiceandOrder">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NumberOrder" ColumnName="NumberOrder" />
+                <ScalarProperty Name="ID_Service" ColumnName="ID_Service" />
+                <ScalarProperty Name="ID_Client" ColumnName="ID_Client" />
+                <ScalarProperty Name="DateCreate" ColumnName="DateCreate" />
+                <ScalarProperty Name="ID_Order" ColumnName="ID_Order" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

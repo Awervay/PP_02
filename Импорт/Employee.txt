@@ -1,0 +1,10 @@
+101	2	Иванов	Иван	Иванович	Ivanov@namecomp.ru	2L6KZG
+102	2	Петров	Петр	Петрович	petrov@namecomp.ru	uzWC67
+103	1	Федоров	Федор	Федорович	fedorov@namecomp.ru	8ntwUp
+104	3	Миронов	Вениамин	Куприянович	mironov@namecomp.ru	YOyhfR
+105	3	Ширяев	Ермолай	Вениаминович	shiryev@namecomp.ru	RSbvHv
+106	3	Игнатов	Кассиан	Васильевич	ignatov@namecomp.ru	rwVDh9
+107	2	Хохлов	Владимир	Мэлсович	hohlov@namecomp.ru	LdNyos
+108	2	Стрелков	Мстислав	Георгьевич	strelkov@namecomp.ru	gynQMT
+109	2	Беляева	Лилия	Наумовна	belyeva@@namecomp.ru	AtnDjr
+110	2	Смирнова	Ульяна	Гордеевна	smirnova@@namecomp.ru	JlFRCZ

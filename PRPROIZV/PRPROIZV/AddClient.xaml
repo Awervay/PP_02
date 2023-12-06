@@ -1,0 +1,87 @@
+﻿<Window x:Class="PRPROIZV.AddClient"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PRPROIZV"
+        mc:Ignorable="d"
+        Title="AddClient" Height="650" Width="500" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Border Background="#FF349C3D" Grid.ColumnSpan="5" CornerRadius="0,0,0,0" ></Border>
+        <Image Source="Resource/logo.png" HorizontalAlignment="Left"/>
+        <TextBlock Grid.Column="1" TextAlignment="Center" VerticalAlignment="Center" FontSize="28" Text="Добавление клиента"></TextBlock>
+        <Button Name="RoolUp" Background="WhiteSmoke" VerticalAlignment="Top" ToolTip="Свернуть" Grid.Column="2" HorizontalAlignment="Right" Margin="0,0,20,0" Width="20" Click="RoolUp_Click"  Content="__"></Button>
+        <Button x:Name="Close"  Background="WhiteSmoke" VerticalAlignment="Top" ToolTip="Закрыть" Grid.Column="2" HorizontalAlignment="Right" Click="Close_Click" Width="20" Content="✕"></Button>
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="10"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="130"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="185"/>
+                <ColumnDefinition Width="100"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="Фамилия" Grid.Row="1" FontSize="18" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <TextBlock Text="Имя" Grid.Row="3" FontSize="18" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <TextBlock Text="Отчество" Grid.Row="5" FontSize="18" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <TextBlock Text="Серия" Grid.Row="7" FontSize="18" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <TextBlock Text="Номер" Grid.Row="7" Grid.Column="2" FontSize="18" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <TextBlock Text="Дата рождения" Grid.Row="9" FontSize="18" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <TextBlock Text="Индекс" Grid.Row="11" FontSize="18" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <TextBlock Text="Город" Grid.Row="13" FontSize="18" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <TextBlock Text="Улица" Grid.Row="15" FontSize="18" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <TextBlock Text="Дом" Grid.Row="17" FontSize="18" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <TextBlock Text="Квартира" Grid.Row="19" FontSize="18" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <TextBlock Text="Почта" Grid.Row="21" FontSize="18" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+
+            <TextBox x:Name="Surname" Grid.Row="1" PreviewTextInput="Surname_PreviewTextInput" PreviewKeyDown="Surname_PreviewKeyDown" MaxLength="24" Grid.ColumnSpan="2" Grid.Column="1" FontSize="18" VerticalAlignment="Center"/>
+            <TextBox x:Name="Name" Grid.Row="3" PreviewTextInput="Surname_PreviewTextInput" PreviewKeyDown="Surname_PreviewKeyDown" MaxLength="24" Grid.ColumnSpan="2" Grid.Column="1" FontSize="18" VerticalAlignment="Center"/>
+            <TextBox x:Name="Forename" PreviewTextInput="Surname_PreviewTextInput" PreviewKeyDown="Surname_PreviewKeyDown" Grid.Row="5" MaxLength="24" Grid.ColumnSpan="2" Grid.Column="1" FontSize="18" VerticalAlignment="Center"/>
+            <TextBox x:Name="Series" PreviewTextInput="Series_PreviewTextInput" PreviewKeyDown="Surname_PreviewKeyDown" Grid.Row="7" MaxLength="4" Grid.Column="1" FontSize="18" VerticalAlignment="Center"/>
+            <TextBox x:Name="Number" PreviewTextInput="Series_PreviewTextInput" PreviewKeyDown="Surname_PreviewKeyDown" Grid.Row="7" MaxLength="6" Margin="0,0,10,0" Grid.Column="3" FontSize="18" VerticalAlignment="Center"/>
+            <DatePicker x:Name="DateBirthday" SelectedDateChanged="DateBirthday_SelectedDateChanged" Grid.Row="9" Grid.Column="1" Grid.ColumnSpan="2" FontSize="18" VerticalAlignment="Center"/>
+            <TextBox x:Name="Index" PreviewTextInput="Series_PreviewTextInput" PreviewKeyDown="Surname_PreviewKeyDown" Grid.Row="11" MaxLength="6" Grid.ColumnSpan="2" Grid.Column="1" FontSize="18" VerticalAlignment="Center"/>
+            <ComboBox x:Name="City" SelectionChanged="City_SelectionChanged" PreviewTextInput="Surname_PreviewTextInput" PreviewKeyDown="Surname_PreviewKeyDown" Grid.Row="13" Grid.ColumnSpan="2" Grid.Column="1" FontSize="18" VerticalAlignment="Center"/>
+            <ComboBox x:Name="Street" SelectionChanged="Street_SelectionChanged" PreviewKeyDown="Surname_PreviewKeyDown" Grid.Row="15" Grid.ColumnSpan="2" Grid.Column="1" FontSize="18" VerticalAlignment="Center"/>
+            <TextBox x:Name="Home" PreviewTextInput="Series_PreviewTextInput" PreviewKeyDown="Surname_PreviewKeyDown" Grid.Row="17" MaxLength="24" Grid.ColumnSpan="2" Grid.Column="1" FontSize="18" VerticalAlignment="Center"/>
+            <TextBox x:Name="Flat" PreviewTextInput="Series_PreviewTextInput" PreviewKeyDown="Surname_PreviewKeyDown" Grid.Row="19" MaxLength="24" Grid.ColumnSpan="2" Grid.Column="1" FontSize="18" VerticalAlignment="Center"/>
+            <TextBox x:Name="Email" PreviewKeyDown="Surname_PreviewKeyDown" Grid.Row="21" MaxLength="24" Grid.ColumnSpan="2" Grid.Column="1" FontSize="18" VerticalAlignment="Center"/>
+            <Button x:Name="Add" Click="Add_Click" Grid.ColumnSpan="4" Grid.Row="23" BorderBrush="Black" BorderThickness="2" Content="Добавить" FontSize="24" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+        </Grid>
+    </Grid>
+</Window>

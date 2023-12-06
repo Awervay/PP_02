@@ -1,0 +1,78 @@
+﻿<Window x:Class="PRPROIZV.Admin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PRPROIZV"
+        mc:Ignorable="d"
+        Title="Admin" Height="600" Width="800" WindowStartupLocation="CenterScreen" WindowStyle="None" MouseMove="Window_MouseMove" KeyDown="Window_KeyDown">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="0"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Border Background="#FF349C3D" Grid.ColumnSpan="5" CornerRadius="0,0,0,0" ></Border>
+        <Image Source="Resource/logo.png" HorizontalAlignment="Left"/>
+        <TextBlock Grid.Column="1" TextAlignment="Center" VerticalAlignment="Center" FontSize="28" Text="Адиминистратор"></TextBlock>
+        <Button Name="RoolUp" Background="WhiteSmoke" VerticalAlignment="Top" ToolTip="Свернуть" Grid.Column="2" HorizontalAlignment="Right" Margin="0,0,40,0" Width="20" Click="RoolUp_Click"  Content="__"></Button>
+        <Button x:Name="Close"  Background="WhiteSmoke" VerticalAlignment="Top" ToolTip="Закрыть" Grid.Column="2" HorizontalAlignment="Right" Click="Close_Click" Width="20" Content="✕"></Button>
+        <Button x:Name="FullSize" Background="White" VerticalAlignment="Top" ToolTip="На весь экран" Grid.Column="2" HorizontalAlignment="Right" Click="FullSize_Click" Width="20" Margin="0,0,20,0" Content="▢"/>
+        <TextBlock x:Name="TimeClose" Text="" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="50,0,0,0"/>
+        <TabControl Grid.Row="2" Grid.Column="1" Grid.RowSpan="2">
+            <TabItem Header="Заказы" Background="#FF92D050" Width="125" FontSize="18">
+                <TabControl>
+                    <ListView x:Name="OrdersList" Foreground="Black">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="Номер клиента" Width="auto" DisplayMemberBinding="{Binding ID_Client}"></GridViewColumn>
+                                <GridViewColumn Header="Клиент" Width="auto" DisplayMemberBinding="{Binding Client}"></GridViewColumn>
+                                <GridViewColumn Header="Услуги" Width="auto" DisplayMemberBinding="{Binding Service}"></GridViewColumn>
+                                <GridViewColumn Header="Город" Width="auto" DisplayMemberBinding="{Binding City}"></GridViewColumn>
+                                <GridViewColumn Header="Дата создания" Width="auto" DisplayMemberBinding="{Binding DateCreation}"></GridViewColumn>
+                                <GridViewColumn Header="Время заказа" Width="auto" DisplayMemberBinding="{Binding OrderTime}"></GridViewColumn>
+                                <GridViewColumn Header="Дата закрытия" Width="auto" DisplayMemberBinding="{Binding ClosingDate}"></GridViewColumn>
+                                <GridViewColumn Header="Время проката" Width="auto" DisplayMemberBinding="{Binding RentalTime}"></GridViewColumn>
+                                <GridViewColumn Header="Статус" Width="auto" DisplayMemberBinding="{Binding Status}"></GridViewColumn>
+                                <GridViewColumn Header="Номер улицы" Width="auto" DisplayMemberBinding="{Binding ID_Street}"></GridViewColumn>
+                                <GridViewColumn Header="Стоимость" Width="auto" DisplayMemberBinding="{Binding Cost, StringFormat=F0}"></GridViewColumn>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                </TabControl>
+            </TabItem>
+            <TabItem Header="Сотрудники" Background="#FF92D050" Width="125" FontSize="18">
+                <TabControl>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="5"/>
+                            <ColumnDefinition Width="3*"/>
+                        </Grid.ColumnDefinitions>
+                        <ComboBox Name="Filtr" SelectionChanged="Filtr_SelectionChanged" Background="White" Height="40" VerticalAlignment="Top" Margin="0,60,0,0"/>
+                        <Button x:Name="ClearFiltr" Click="ClearFiltr_Click" Height="40" Background="#FF92D050" BorderBrush="Black" BorderThickness="2" Margin="0,10,0,0" Content="Очистить фильтрацию" VerticalAlignment="Top" FontSize="17">
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="5"/>
+                            </Style>
+                        </Button.Resources>
+                        </Button>
+                        <ListView x:Name="EmployeeList" Grid.Column="2" Foreground="Black">
+                            <ListView.View>
+                                <GridView>
+                                    <GridViewColumn Header="Сотрудник" Width="auto" DisplayMemberBinding="{Binding Employee}"></GridViewColumn>
+                                    <GridViewColumn Header="Логин" Width="auto" DisplayMemberBinding="{Binding Login}"></GridViewColumn>
+                                    <GridViewColumn Header="История входа" Width="auto" DisplayMemberBinding="{Binding ID_History}"></GridViewColumn>
+                                    <GridViewColumn Header="Дата/время входа" Width="auto" DisplayMemberBinding="{Binding Date}"></GridViewColumn>
+                                    <GridViewColumn Header="Номер сотрудника" Width="auto" DisplayMemberBinding="{Binding ID_Employee}"></GridViewColumn>
+                                    <GridViewColumn Header="Статус входа" Width="auto" DisplayMemberBinding="{Binding Input}"></GridViewColumn>
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
+                    </Grid>
+                </TabControl>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>

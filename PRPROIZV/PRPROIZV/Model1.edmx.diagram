@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="72283db9881e4e54bab881d890ea96b3" Name="Diagram1" ZoomLevel="98">
+        <EntityTypeShape EntityType="VinidiktovDEMnovemberModel.City" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VinidiktovDEMnovemberModel.Client" Width="1.5" PointX="3" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="VinidiktovDEMnovemberModel.Employee" Width="1.5" PointX="10" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="VinidiktovDEMnovemberModel.History_Employee" Width="1.5" PointX="12.25" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="VinidiktovDEMnovemberModel.Order" Width="1.5" PointX="5.25" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="VinidiktovDEMnovemberModel.Post" Width="1.5" PointX="7.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VinidiktovDEMnovemberModel.Service" Width="1.5" PointX="5.25" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="VinidiktovDEMnovemberModel.Status" Width="1.5" PointX="3" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VinidiktovDEMnovemberModel.Street" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VinidiktovDEMnovemberModel.sysdiagrams" Width="1.5" PointX="9.75" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="VinidiktovDEMnovemberModel.Type_input" Width="1.5" PointX="10" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VinidiktovDEMnovemberModel.ViewingEmployee" Width="1.5" PointX="7.75" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="VinidiktovDEMnovemberModel.ViewingOrders" Width="1.5" PointX="9.75" PointY="11" IsExpanded="true" />
+        <AssociationConnector Association="VinidiktovDEMnovemberModel.FK_Client_City" ManuallyRouted="false" />
+        <AssociationConnector Association="VinidiktovDEMnovemberModel.FK_Client_Street" ManuallyRouted="false" />
+        <AssociationConnector Association="VinidiktovDEMnovemberModel.FK_Order_Client" ManuallyRouted="false" />
+        <AssociationConnector Association="VinidiktovDEMnovemberModel.FK_Employee_Post" ManuallyRouted="false" />
+        <AssociationConnector Association="VinidiktovDEMnovemberModel.FK_History_Employee_Employee" ManuallyRouted="false" />
+        <AssociationConnector Association="VinidiktovDEMnovemberModel.FK_History_Employee_Type_input" ManuallyRouted="false" />
+        <AssociationConnector Association="VinidiktovDEMnovemberModel.FK_Order_Status" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="VinidiktovDEMnovemberModel.ViewingClient" Width="1.5" PointX="5.125" PointY="11.5" />
+        <EntityTypeShape EntityType="VinidiktovDEMnovemberModel.ServiceandOrder" Width="1.5" PointX="7.5" PointY="4" />
+        <AssociationConnector Association="VinidiktovDEMnovemberModel.FK_ServiceandOrder_Client" />
+        <AssociationConnector Association="VinidiktovDEMnovemberModel.FK_ServiceandOrder_Order" />
+        <AssociationConnector Association="VinidiktovDEMnovemberModel.FK_ServiceandOrder_Service" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
